@@ -27,6 +27,8 @@ body{
     font-weight: bold;
 }
 .jumbotron{
-    margin-top: 7rem;
-    margin-bottom: -2rem;
+    margin-top: 10rem;
+}
+.f-a{
+    width: 85%;
 }
