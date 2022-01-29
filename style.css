@@ -1,34 +1,394 @@
-body{
-    min-height: 900px;
+:root{
+    --loadingRotation: 0deg;
 }
+
+
 *{
-    font-family: comic sans ms, arial, sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+    transition: .25s;
 }
-.navbar-brand{
-    font-weight: bold;
+html, body{
+    margin: 0;
 }
-.nav-item{
-    font-weight: 500;
+body{
+    min-height: 1000px;
 }
-.aboutme{
-    margin-top: 25px;
-    padding-top: 3rem;
+/* ? NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #222;
+    height: 40px;
+    margin-top: -1.2rem;
+    z-index: 20;
+    border-bottom: 3.5px solid #333;
 }
-.aboutme .title{
+.navbar .mainNavDiv{
+    width: 105px;
+}
+.navbar #showJump{
+    aspect-ratio: 1 / 1;
+    width: fit-content;
+    background: #333;
+    border-radius: 5px;
+    border: none;
+    padding: 0 10px;
+    z-index: 20;
+}
+.navbar #showJump:hover{
+    color: #d8d8d8;
+}
+.subNavDivContainer div{
+    position: relative;
+    display: inline-block;
+}
+.navbar a.main, .navbar a.main:visited{
+    color: rgb(148, 148, 148);
+    text-decoration: none;
+}
+.navbar a.main:hover{
+    color: white;
+    text-decoration: underline;
+    text-shadow: 0 0 6px white;
+    /* transform: scale(1.1); */
+}
+.navbar .subNavDiv a, .navbar .subNavDiv a:visited{
+    color: rgb(148, 148, 148);
+    text-decoration: none;
+}
+.navbar .subNavDiv a:hover{
+    color: rgb(230, 230, 230);
+    text-decoration: underline;
+    transform: scale(1.2);
+    text-shadow: 0 0 5px white;
+}
+.navbar a span{
+    font-size: .9rem !important;
+}
+#jump{
+    position: -webkit-sticky;
+    position: sticky;
+    top: -130px;
+    margin-top: -200px;
+    z-index: 10;
+    color: grey;
+    padding: 20px;
     text-align: center;
-    font-weight: bold;
+    background: #000;
+    border-radius: 0 0 20px 20px;
+    border-bottom: 2px solid #666;
 }
-.aboutme .paragraph{
+#jump a{
+    color: grey;
+}
+#jump a:hover{
+    color: white;
+}
+#jump.slide{
+    margin: none;
+}
+/* ? Body */
+#Home{
+    min-height: 100vh;
+    width: 90%;
+    margin: 0 auto 0;
+    color: rgb(24, 24, 24);
+    text-shadow: 0 0 3px black;
+}
+#Home .read-more{
+    transition: .5s;
+    margin: 0 10%;
+    background: none;
+    border: none;
+    font-size: 25px;
+    text-shadow: 0 0 3px black;
+    padding: 5px;
+    border-radius: 3px;
+}
+#Home .read-more:hover{
+    background-color: rgba(55, 55, 55, 0.3);
+}
+#Home .read-more:focus{
+    background-color: rgba(55, 55, 55, 0.8);
+}
+
+
+#About-Me{
+    min-height: 70vh;
+    color: rgb(225, 225, 225); 
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.35);
+    box-shadow: 0 -1vh 0px grey, 0 -2vh 1px rgb(175, 175, 175),
+    0 1vh 0px grey, 0 2vh 1px rgb(175, 175, 175);
+    background-color: #151515;
+    padding: 20vh 3vh;
     text-align: justify;
-    width: 85%;
-    margin: 2rem auto 5rem;
 }
-.kata-kata{
-    font-weight: bold;
+#About-Me h1{
+    text-align: center;
+    line-height: .7rem;
+    font-size: 1.5rem;
 }
-.jumbotron{
-    margin-top: 10rem;
+#About-Me .am-c{
+    display: flex;
+    justify-content: center;
 }
-.f-a{
+#About-Me p{
+    font-size: 20px;
+    text-shadow: 0 50px 3.5px rgba(255, 255, 255, 0.15),
+    0 0 2px #ffffff50;
+    /* text-shadow: 0 -7px 7px rgba(255, 255, 255, 0.5); */
+    margin: 0px auto;
+    max-width: 85%;
+    padding: 15px;
+    border-radius: 10px;
+}
+#About-Me p:hover{
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.card{
+    display: inline-block;
+    padding: 12px;
+    border-radius: 10px;
+    width: fit-content;
+    text-align: center;
+    margin: 7px 5px;
+    box-shadow: none;
+}
+.card img{
+    max-width: 300px;
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    border-radius: 10px;
+}
+
+
+#projects{
+    padding: 10px 0;
+    text-align: center;
+    min-height: 90vh;
+    margin: 10px;
+    color: white;
+}
+#projects .title{
+    color: #111;
+}
+#projects .card{
+    background-color: rgb(29, 29, 29);
+    border: .5px solid rgb(29, 29, 29);
+}
+#projects .card:hover{
+    box-shadow: 0 -.5vh 0px grey, 0 -1vh 1px rgb(175, 175, 175),
+    0 .5vh 0px grey, 0 1vh 1px rgb(190, 190, 190);
+}
+#projects .card img{
+    background-color: darkgray;
+}
+#projects .card a button{
+    background-color: white;
+    border-radius: 7px;
+    border-top: 1px solid black;
+    border-left: none;
+    border-right: none;
+    border-bottom: 4px solid gray;
+}
+#projects .card a button:hover{
+    border-bottom: 4px solid rgb(165, 165, 165);
+}
+
+
+#projects .projectExplanation{
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    max-width: 270px;
+    text-align: justify;
+    margin: auto;
+    padding: 10px;
+}
+
+
+#Skills{
+    margin: 30px 0 12px 0;
+    text-align: center;
+    background-color: #151515;
+    color: #d8d8d8;
+    padding: 100px 10px;
+    min-height: 90vh;
+    box-shadow: 0 -1vh 0px grey, 0 -2vh 1px rgb(175, 175, 175),
+    0 1vh 0px grey, 0 2vh 1px rgb(175, 175, 175);
+}
+#Skills .card{
+    background-color: #333;
+    padding: 15px;
+    box-shadow:
+    1.5px 0 0 #d8d8d8,
+    0 1.5px 0 #d8d8d8,
+    1.5px 1.5px 0 #d8d8d8,
+    -1.5px -1.5px 0 #d8d8d8,
+    -1.5px 0 0 #d8d8d8,
+    0 -1.5px 0 #d8d8d8,/* */
+    3px 0 0 #a5a5a5,
+    0 3px 0 #a5a5a5,
+    3px 3px 0 #a5a5a5,
+    -3px -3px 0 #a5a5a5,
+    -3px 0 0 #a5a5a5,
+    0 -3px 0 #a5a5a5,/* */
+    4px 0 0 #8a8a8a,
+    0 4px 0 #8a8a8a,
+    4px 4px 0 #8a8a8a,
+    -4px -4px 0 #8a8a8a,
+    -4px 0 0 #8a8a8a,
+    0 -4px 0 #8a8a8a;
+}
+/* */
+#Skills .card img, #projects .card img{
+    transition: .3s;
+    filter: grayscale(.4) brightness(.6);
+}
+#Skills .card:hover img, #projects .card:hover img{
+    filter: none;
+}
+
+
+#Contact-Me{
+    height: 90vh;
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    background-color: #d8d8d8;
+}
+#Contact-Me form > *{
+    display: block;
+    margin: 10px 0;
+    border-radius: 10px;
+    outline: none;
+    font-size: .8rem;
+    resize: none;
+    width: 100%;
+    background-color: #222;
+    color: #d8d8d8;
+    padding: 5px;
+}
+#Contact-Me form textarea{
+    height: 200px;
+}
+#Contact-Me .button-c{
+    padding: 0;
+    background: none;
+    font-size: .1rem;
+}
+#Contact-Me .button-c button{
+    background-color: #222;
+    color: #d8d8d8;
+    border-radius: 10px;
+    font-size: .8rem;
+    padding: 10px 15px;
+    margin: 0 10px 0 0;
     width: 50%;
+}
+#Contact-Me #success{
+    color: #00D26A;
+    text-shadow: 0 0 7px #64ffb2;
+}
+#Contact-Me #error{
+    color: #F92F60;
+    text-shadow: 0 0 7px #ff4f7b;
+}
+
+
+
+#footer{
+    color: #d8d8d8;
+    background-color: #222;
+    text-align: center;
+    padding: 10px;
+    position: sticky;
+    bottom: 0;
+    border-top: 4px solid #d8d8d8;
+}
+
+
+/* #Contact-Me .button-c .loading{
+    background: linear-gradient(#111, #555);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation: loading 5s ease-in-out 0s infinite;
+}
+@keyframes loading{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+} */
+
+
+
+
+
+@media (max-width: 350px){
+    .navbar .subNavDivContainer{
+        display: none;
+    }
+    .navbar{
+        height: fit-content;
+        padding-bottom: 10px;
+    }
+    .navbar #showJump{
+        display: inline-block;
+    }
+    #jump.slide{
+        top: 70px;
+    }
+    #About-Me p{
+        display: block;
+        margin: 20px 0px;
+    }
+}
+@media (min-width: 350px) and (max-width: 940px){
+    .navbar .subNavDivContainer{
+        display: none;
+    }
+    .navbar #showJump{
+        display: inline-block;
+    }
+    #jump.slide{
+        top: 80px;
+    }
+    #About-Me p{
+        display: block;
+        margin: 20px 0px;
+    }
+}
+@media (min-width: 940px){
+    .navbar .subNavDivContainer{
+        display: inline-block;
+    }
+    .navbar .subNavDiv{
+        display: inline-block;
+        width: 140px;
+    }
+    .navbar #showJump{
+        display: none;
+    }
+    #jump{
+        display: none !important;
+    }
+    #About-Me p{
+        display: inline-block;
+        max-width: 40%;
+        margin: 0 10px;
+    }
+}
+/* ! ALL */
+.hide{
+    display: none;
 }
