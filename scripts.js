@@ -1,5 +1,7 @@
 const showJump = document.getElementById('showJump'),
-    jump = document.getElementById('jump');
+    jump = document.getElementById('jump'),
+    grade1 = document.getElementById('grade1'),
+    youtubeImg = document.getElementById('youtubeImg');
 
 
 
@@ -25,4 +27,19 @@ function clickCheck() {
     }
 }
 
+function myGrade() {
+    let date = new Date();
+    let year = date.getFullYear(),
+        month = date.getMonth();
+
+    let grade;
+    if (month > 6) {
+        grade = year - 2021 + 7;
+    } else if (month <= 6) {
+        grade = year - 2021 + 6;
+    }
+    grade1.innerText = grade;
+    setTimeout(myGrade, 100);
+}
+myGrade();
 check1();
